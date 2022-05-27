@@ -13,6 +13,7 @@ jobs:
       - name: Use sntp client
         run: |
           ip a
+          ip route
           sudo apt install sntp
           sudo tcpdump -i eth0 -nn -vvv udp &
           sleep 1
