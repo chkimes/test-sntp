@@ -14,4 +14,7 @@ jobs:
         run: sudo tcpdump -i any -nn port 123 &
       
       - name: Use sntp client
-        run: sudo sntp time.google.com
+        run: |
+          sudo apt install sntp
+          sudo sntp time.google.com
+          pgrep sntp
