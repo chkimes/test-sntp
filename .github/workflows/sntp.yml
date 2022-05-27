@@ -17,4 +17,5 @@ jobs:
         run: |
           sudo apt install sntp
           sudo sntp -4 time.google.com || true
+          sleep 5
           pgrep tcpdump
