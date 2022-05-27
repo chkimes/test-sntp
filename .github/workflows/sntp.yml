@@ -10,9 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Start tcpdump
+        run: sudo tcpdump -i any -nn not port 443 and not port 80 &
+      
       - name: Use sntp client
         run: |
-          sudo tcpdump -i any -nn not port 443 &
           sudo apt install sntp
           sudo sntp -4 time.google.com || true
           pgrep tcpdump
