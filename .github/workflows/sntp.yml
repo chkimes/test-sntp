@@ -15,7 +15,7 @@ jobs:
           ip a
           ip route
           sudo apt install sntp
-          sudo tcpdump -i eth0 -nn -vvv udp &
+          sudo tcpdump -i any -nn -vvv udp &
           sleep 1
           sudo sntp -4 time.google.com || true
           sudo sntp -4 time.windows.com || true
