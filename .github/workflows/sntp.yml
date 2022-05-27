@@ -13,8 +13,9 @@ jobs:
       - name: Use sntp client
         run: |
           ip a
-          sudo tcpdump -i any -nn -vvv udp &
           sudo apt install sntp
+          sudo tcpdump -i eth0 -nn -vvv udp &
+          sleep 1
           sudo sntp -4 time.google.com || true
           sudo sntp -4 time.windows.com || true
           sleep 5 # wait for tcpdump output
