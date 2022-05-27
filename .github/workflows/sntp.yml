@@ -16,5 +16,5 @@ jobs:
       - name: Use sntp client
         run: |
           sudo apt install sntp
-          sudo sntp time.google.com
+          sudo sntp -4 time.google.com || true
           pgrep sntp
