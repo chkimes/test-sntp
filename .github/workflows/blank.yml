@@ -1,0 +1,17 @@
+name: Test SNTP
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sntp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Start tcpdump
+        run: sudo tcpdump -i any -nn port 123 &
+      
+      - name: Use sntp client
+        run: sudo sntp time.google.com
