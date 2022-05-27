@@ -10,11 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Start tcpdump
-        run: sudo tcpdump -i any -nn port 123 &
-      
       - name: Use sntp client
         run: |
+          sudo tcpdump -i any -nn port 123 &
           sudo apt install sntp
           sudo sntp -4 time.google.com || true
           pgrep sntp
