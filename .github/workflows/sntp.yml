@@ -36,8 +36,8 @@ jobs:
       
       - name: Use sntp client
         run: |
-          # sudo tcpdump -i any -nn -vvv udp &
-          # sleep 1
+          sudo tcpdump -i any -nn -vvv udp &
+          sleep 1
           curl time.google.com
           ping -c 4 216.239.35.0
           ping -c 4 216.239.35.4
@@ -45,5 +45,5 @@ jobs:
           sntp -d time.google.com
           sntp -d time.google.com
           sntp -d time.google.com
-          # sleep 5 # wait for tcpdump output
-          # echo # flush output
+          sleep 5 # wait for tcpdump output
+          echo # flush output
