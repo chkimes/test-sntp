@@ -38,6 +38,9 @@ jobs:
         run: |
           # sudo tcpdump -i any -nn -vvv udp &
           # sleep 1
+          curl time.google.com
+          ping 216.239.35.0
+          ping 216.239.35.4
           sntp -d time.google.com
           sntp -d time.google.com
           sntp -d time.google.com
