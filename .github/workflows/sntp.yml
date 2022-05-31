@@ -7,6 +7,7 @@ on:
 jobs:
   sntp:
     runs-on: ubuntu-latest
+    if: false
     steps:
       - uses: actions/checkout@v3
       
@@ -23,3 +24,19 @@ jobs:
           sudo sntp -4 time.windows.com || true
           sleep 5 # wait for tcpdump output
           echo # flush output
+
+  sntp-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Use sntp client
+        run: |
+          # sudo tcpdump -i any -nn -vvv udp &
+          # sleep 1
+          sntp -d time.google.com
+          sntp -d time.google.com
+          sntp -d time.google.com
+          sntp -d time.google.com
+          # sleep 5 # wait for tcpdump output
+          # echo # flush output
